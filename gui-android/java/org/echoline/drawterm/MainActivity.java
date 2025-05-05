@@ -203,6 +203,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.drawterm_main);
 
 		Button kbutton = (Button)findViewById(R.id.keyboardToggle);
+		kbutton.setFocusable(false);
 		kbutton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View view) {

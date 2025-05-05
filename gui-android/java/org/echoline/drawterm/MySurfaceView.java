@@ -49,6 +49,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 				CheckBox right = (CheckBox)mainActivity.findViewById(R.id.mouseRight);
 				CheckBox up = (CheckBox)mainActivity.findViewById(R.id.mouseUp);
 				CheckBox down = (CheckBox)mainActivity.findViewById(R.id.mouseDown);
+				left.setFocusable(false);
+				middle.setFocusable(false);
+				right.setFocusable(false);
+				up.setFocusable(false);
+				down.setFocusable(false);
 				int buttons = (left.isChecked()? 1: 0) |
 								(middle.isChecked()? 2: 0) |
 								(right.isChecked()? 4: 0) |

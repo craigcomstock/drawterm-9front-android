@@ -1,7 +1,7 @@
 # Android
-SDKPREFIX=$(HOME)/Android/Sdk
+SDKPREFIX=/opt/android-sdk
 JAVA_HOME=/usr
-OBJS=lib/arm64-v8a/libdrawterm.so lib/armeabi-v7a/libdrawterm.so lib/x86/libdrawterm.so lib/x86_64/libdrawterm.so
+OBJS=lib/arm64-v8a/libdrawterm.so
 
 all: drawterm.apk
 
@@ -31,7 +31,7 @@ drawterm-signed.apk: drawterm-unsigned.apk drawterm.keystore
 	$(JAVA_HOME)/bin/jarsigner -verbose -keystore ./drawterm.keystore -storepass glendarocks -keypass glendarocks -signedjar $@ $< drawtermKey
 
 drawterm-unsigned.apk: $(OBJS)
-	$(SDKPREFIX)/build-tools/30.0.3/aapt package -v -f -M gui-android/AndroidManifest.xml -S gui-android/res -I $(SDKPREFIX)/platforms/android-21/android.jar -F $@ gui-android/bin
+	$(SDKPREFIX)/build-tools/30.0.3/aapt package -v -f -M gui-android/AndroidManifest.xml -S gui-android/res -I $(SDKPREFIX)/platforms/android-33/android.jar -F $@ gui-android/bin
 	$(SDKPREFIX)/build-tools/30.0.3/aapt add $@ $(OBJS)
 
 drawterm.keystore:
